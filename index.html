@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamrul Zaman · Portfolio CMS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="app">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">
+                kamrul<span>zaman</span>
+                <span class="admin-badge" id="adminBadge" style="display:none;">
+                    <i class="fas fa-shield-alt"></i> Admin
+                </span>
+            </div>
+            <div class="nav-links">
+                <a href="#" data-page="home" class="active">Home</a>
+                <a href="#" data-page="resume">Resume</a>
+                <a href="#" data-page="projects">Projects</a>
+                <a href="#" data-page="admin" id="adminNavLink" style="display:none;">Admin</a>
+                <a href="#" data-page="contact">Contact</a>
+                <span class="search-icon"><i class="fas fa-search"></i></span>
+            </div>
+        </nav>
+
+        <!-- HOME PAGE -->
+        <div class="page-section active" id="page-home">
+            <div class="hero">
+                <div class="hero-content">
+                    <div class="greeting"><i class="fas fa-hand-peace" style="color: #2563eb; margin-right: 6px;"></i> Hello, I'm</div>
+                    <h1 id="heroName">Kamrul <span>Zaman</span></h1>
+                    <div class="hero-sub" id="heroTitle"><i class="fas fa-code" style="color: #2563eb; margin-right: 10px;"></i>Backend & Platform Engineer</div>
+                    <div class="hero-desc" id="heroDesc">Building scalable backend systems with Go, TypeScript, and Node.js. Passionate about cloud-native architecture, distributed systems, and developer productivity.</div>
+                    <div class="hero-stats">
+                        <div class="stat-item"><span class="stat-number" id="statFollowers">12K</span><span class="stat-label"> followers</span></div>
+                        <div class="stat-item"><span class="stat-number" id="statContrib">1,847</span><span class="stat-label"> GitHub contributions</span></div>
+                    </div>
+                </div>
+                <div class="hero-avatar">
+                    <div class="avatar-circle" id="avatarContainer">
+                        <span id="avatarInitials">KZ</span>
+                        <img id="avatarImage" style="display:none;" alt="profile" />
+                    </div>
+                    <div class="avatar-badge" id="avatarLocation"><i class="fas fa-map-pin" style="margin-right: 6px;"></i>Bangladesh</div>
+                    <div style="margin-top: 10px; background: #eef2f6; padding: 0.2rem 1rem; border-radius: 30px; font-size: 0.8rem; font-weight: 500;" id="avatarCompany">
+                        <i class="fas fa-briefcase" style="color: #2563eb;"></i> Freelance
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESUME PAGE -->
+        <div class="page-section" id="page-resume">
+            <div class="resume-full" id="resumeContent">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:0.5rem;">
+                    <h2 id="resumeFullName">Kamrul Zaman</h2>
+                    <a id="cvDownloadLink" href="#" download="Kamrul_Zaman_CV.pdf" style="display:none; background:#2563eb; color:white; padding:0.5rem 1.5rem; border-radius:30px; text-decoration:none; font-weight:600; font-size:0.9rem;">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                </div>
+                <div class="subtitle" id="resumeFullTitle">Backend & Platform Engineer</div>
+
+                <div class="section">
+                    <h3>Professional Summary</h3>
+                    <p id="resumeFullSummary">Backend engineer with 3+ years of experience in Go, TypeScript, and AWS. Focused on building resilient, high-performance systems and developer tooling.</p>
+                </div>
+
+                <div class="section">
+                    <h3>Contact Information</h3>
+                    <ul id="resumeContactList">
+                        <li><i class="fas fa-envelope" style="color:#2563eb;width:1.5rem;"></i> kamu105024@gmail.com</li>
+                        <li><i class="fas fa-phone" style="color:#2563eb;width:1.5rem;"></i> 01305622991</li>
+                        <li><i class="fab fa-github" style="color:#2563eb;width:1.5rem;"></i> github.com/kamrulzaman</li>
+                        <li><i class="fab fa-linkedin" style="color:#2563eb;width:1.5rem;"></i> linkedin.com/in/kamrul-zaman-a799312b6/</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>Skills</h3>
+                    <ul>
+                        <li>Go, TypeScript, Node.js</li>
+                        <li>Distributed Systems, Microservices</li>
+                        <li>REST APIs, GraphQL, gRPC</li>
+                        <li>PostgreSQL, MongoDB, Mysql</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>Experience</h3>
+                    <ul>
+                        <li><strong>Backend & Platform Engineer</strong> - Freelance (2026)</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>Education</h3>
+                    <ul>
+                        <li><strong>B.Sc. in Computer Science</strong> - United International University</li>
+                    </ul>
+                </div>
+                
+                <!-- Resume Sections Container -->
+                <div id="resumeSections"></div>
+            </div>
+        </div>
+
+        <!-- PROJECTS PAGE -->
+        <div class="page-section" id="page-projects">
+            <div class="section-title"><i class="fas fa-code-branch" style="color: #2563eb; margin-right: 12px;"></i>My Projects</div>
+            <div class="project-grid" id="projectGrid"></div>
+        </div>
+
+        <!-- ADMIN PAGE -->
+        <div class="page-section" id="page-admin">
+            <div class="admin-panel">
+                <h2><i class="fas fa-cog"></i> Admin Dashboard</h2>
+
+                <div id="adminContent">
+                    <div class="admin-grid">
+                        <!-- Profile Section -->
+                        <div class="admin-section">
+                            <h3><i class="fas fa-user-edit"></i> Profile</h3>
+                            <input type="text" id="adminName" placeholder="Full Name" />
+                            <input type="text" id="adminTitle" placeholder="Title" />
+                            <textarea id="adminDesc" placeholder="Description"></textarea>
+                            <input type="text" id="adminLocation" placeholder="Location" />
+                            <input type="text" id="adminCompany" placeholder="Company" />
+                            <div class="file-input">
+                                <label>Profile Picture:</label>
+                                <input type="file" id="profilePicInput" accept="image/*" />
+                            </div>
+                            <div class="file-input">
+                                <label>CV/Resume (PDF):</label>
+                                <input type="file" id="cvFileInput" accept=".pdf,.doc,.docx" />
+                            </div>
+                            <button class="btn btn-success" id="saveProfileBtn"><i class="fas fa-save"></i> Save Profile</button>
+                            <div id="profileStatus" class="status-msg"></div>
+                        </div>
+
+                        <!-- Resume Sections Admin -->
+                        <div class="admin-section">
+                            <h3><i class="fas fa-file-alt"></i> Resume Sections</h3>
+                            <div id="resumeSectionsAdmin"></div>
+                            <button class="btn btn-secondary" id="addSectionBtn"><i class="fas fa-plus"></i> Add Section</button>
+                        </div>
+
+                        <!-- Add Project -->
+                        <div class="admin-section">
+                            <h3><i class="fas fa-plus-circle"></i> Add Project</h3>
+                            <input type="text" id="projectTitle" placeholder="Project title" />
+                            <textarea id="projectDesc" placeholder="Full project description" style="min-height:80px;"></textarea>
+                            <textarea id="projectContent" placeholder="Full markdown content (optional)" style="min-height:100px;"></textarea>
+                            <input type="text" id="projectIcon" placeholder="Icon class (e.g. fa-cloud)" value="fa-cloud" />
+                            <input type="text" id="projectLink" placeholder="Project URL (optional)" />
+                            <div class="file-input">
+                                <label>Project Images:</label>
+                                <input type="file" id="addProjectImagesInput" accept="image/*" multiple />
+                            </div>
+                            <div id="addProjectImagesPreview" class="image-preview-container"></div>
+                            <button class="btn btn-success" id="addProjectBtn"><i class="fas fa-plus"></i> Add Project</button>
+                            <div id="projectStatus" class="status-msg"></div>
+                        </div>
+
+                        <!-- Manage Projects -->
+                        <div class="admin-section">
+                            <h3><i class="fas fa-trash-alt"></i> Manage Projects</h3>
+                            <div id="projectListAdmin" style="max-height:300px; overflow-y:auto;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT PAGE -->
+        <div class="page-section" id="page-contact">
+            <div class="card" style="max-width:600px;margin:0 auto;">
+                <div class="card-header">
+                    <h3><i class="fas fa-address-card" style="color: #2563eb; margin-right: 8px;"></i>Contact Me</h3>
+                    <span class="badge-available"><i class="fas fa-circle" style="color: #22c55e; font-size: 0.5rem; margin-right: 4px;"></i>Available</span>
+                </div>
+                <div style="margin-bottom: 1rem; font-weight: 500;">Get in Touch</div>
+                <div style="color: #475569; font-size: 0.9rem; margin-bottom: 1.5rem;">Have a project in mind? Reach out — I respond within 24h.</div>
+                <div id="contactPageList"></div>
+                <div class="social-icons" id="socialPageIcons"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer-note">
+            <span><i class="far fa-copyright"></i> 2026 Kamrul Zaman · Backend & Platform</span>
+            <span><i class="fas fa-map-pin" style="color: #2563eb;"></i> Bangladesh · <i class="fas fa-briefcase" style="color: #2563eb; margin-left: 8px;"></i> Freelance</span>
+        </div>
+    </div>
+
+    <!-- Edit Project Modal -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal">
+            <h3><i class="fas fa-edit"></i> Edit Project</h3>
+            <input type="hidden" id="editProjectId" />
+            <input type="text" id="editProjectTitle" placeholder="Project title" />
+            <textarea id="editProjectDesc" placeholder="Full description" style="min-height:80px;"></textarea>
+            <textarea id="editProjectContent" placeholder="Full markdown content" style="min-height:100px;"></textarea>
+            <input type="text" id="editProjectIcon" placeholder="Icon class (e.g. fa-cloud)" />
+            <input type="text" id="editProjectLink" placeholder="Project URL" />
+            <div class="file-input">
+                <label>Project Images:</label>
+                <input type="file" id="editProjectImagesInput" accept="image/*" multiple />
+            </div>
+            <div id="editProjectImages" class="image-preview-container"></div>
+            <div class="modal-actions">
+                <button class="save-btn" id="saveEditBtn"><i class="fas fa-save"></i> Save</button>
+                <button class="cancel-btn" id="cancelEditBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="frontend.js"></script>
+</body>
+</html>
