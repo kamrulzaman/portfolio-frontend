@@ -9,11 +9,11 @@
         const port = window.location.port;
         
         // Production - Vercel (ফ্রন্টএন্ড Vercel-এ, ব্যাকএন্ড Render-এ)
-        if (hostname !== 'localhost' && hostname !== '127.0.0.1') {
-            // Render ব্যাকএন্ড URL (আপনার Render URL বসান)
-            return 'https://portfolio-backend.onrender.com/api';
-        }
-        
+       // Production - Vercel (Frontend on Vercel, Backend on Render)
+if (hostname !== 'localhost' && hostname !== '127.0.0.1') {
+    // Corrected Render backend URL to exactly match server.js CORS
+    return 'https://portfolio-backend-drs2.onrender.com/api';
+}
         // Local development - port detection
         if (port === '5000' || port === '') {
             return '/api';
