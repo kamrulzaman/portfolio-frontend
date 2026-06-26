@@ -1,8 +1,12 @@
 {
   "name": "portfolio-frontend",
   "version": "1.0.0",
-  "description": "My portfolio website",
+  "description": "My portfolio website with modern UI and CMS capabilities",
+  "private": true,
   "scripts": {
-    "build": "echo 'No build step needed'"
-  }
+    "start": "echo 'To run locally, please use VS Code Live Server or an alternative local static server on port 5500.'"
+  },
+  "keywords": [],
+  "author": "Kamrul Zaman",
+  "license": "ISC"
 }
