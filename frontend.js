@@ -477,12 +477,17 @@ if (hostname !== 'localhost' && hostname !== '127.0.0.1') {
         const cvLink = $('cvDownloadLink');
         if (!cvLink) return;
         
-        if (isAdmin && profileData && profileData.cvFile) {
+        // 1. Check if an admin uploaded a custom database file
+        if (profileData && profileData.cvFile) {
             cvLink.href = profileData.cvFile;
             cvLink.style.display = 'inline-flex';
             cvLink.download = 'Kamrul_Zaman_CV.pdf';
-        } else {
-            cvLink.style.display = 'none';
+        } 
+        // 2. Fallback: If no database file is uploaded, show the local file to everyone!
+        else {
+            cvLink.href = 'assets/resume.pdf';
+            cvLink.style.display = 'inline-flex'; // Always keep visible to visitors
+            cvLink.download = 'Kamrul_Zaman_Resume.pdf';
         }
     }
 
